@@ -60,5 +60,15 @@ class RestaurantTest {
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+    @Test
+    public void total_order_value_should_return_sum_of_price_of_all_selected_items(){
+        restaurant.addToMenu("Sweet corn soup",10);
+        restaurant.addToMenu("Vegetable lasagne", 20);
+        List<String> selectedItems=new ArrayList<String>();
+        selectedItems.add("Sweet corn soup");
+        selectedItems.add("Vegetable lasagne");
+        assertEquals(30,restaurant.totalOrderValue(selectedItems));
+
+    }
 
 }
