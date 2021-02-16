@@ -64,6 +64,21 @@ public class Restaurant {
         return name;
     }
 
-
+    public double totalOrderValue(List<String> itemSelected){
+        double total=0;
+        ListIterator selectedItemIterator=itemSelected.listIterator();
+        while (selectedItemIterator.hasNext())
+        {
+            String selectedValue=(String) selectedItemIterator.next();
+            for(Item item:menu)
+            {
+                if(item.getName().equalsIgnoreCase(selectedValue)) {
+                    total += item.getPrice();
+                    break;
+                }
+            }
+        }
+        return total;
+    }
 
 }
